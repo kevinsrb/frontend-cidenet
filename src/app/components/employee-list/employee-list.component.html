@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="row-border hover">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>otherNames</th>
+        <th>firtsLastName</th>
+        <th>secondLastName</th>
+        <th>country</th>
+        <th>documentType</th>
+        <th>document</th>
+        <th>email</th>
+        <th>Fecha ingreso</th>
+        <th>area</th>
+        <th>status</th>
+        <th>Fecha creacion</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeService.employees">
+        <td> {{ employee.name }}</td>
+        <td> {{ employee.otherNames }}</td>
+        <td> {{ employee.firtsLastName }}</td>
+        <td> {{ employee.secondLastName }}</td>
+        <td> {{ employee.country }}</td>
+        <td> {{ employee.documentType }}</td>
+        <td> {{ employee.document }}</td>
+        <td> {{ employee.email }}</td>
+        <td> {{ employee.admissionDate }}</td>
+        <td> {{ employee.area }}</td>
+        <td> {{ employee.status }}</td>
+        <td> {{ employee.createdAt }}</td>
+        <td>
+          <a [routerLink]="['/register/edit', employee._id]" class="btn btn-secondary btn-sm">
+            <i class="material-icons">edit</i>
+          </a>
+          <a (click)="deleteEmployee(employee._id, employeeForm)" class="btn btn-danger btn-sm">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  
+  </table>
+</div>

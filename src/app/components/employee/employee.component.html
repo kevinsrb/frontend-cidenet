@@ -1,0 +1,166 @@
+<div class="page-wrapper p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Event Registration Form</h2>
+                </div>
+                <div class="card-body">
+                    <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+                      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-4">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5"  type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name"
+                                            (keypress)="eliminarCaracteres($event)" style="text-transform:uppercase;" maxlength="20" 
+                                            >
+                                           
+                                            <label class="label--desc">first name</label>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="otherNames" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.otherNames"
+                                            (keypress)="eliminarCaracteres($event)" style="text-transform:uppercase;" maxlength="50" 
+                                            >
+                                            <label class="label--desc">other names</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                          <div class="name">surnames</div>
+                          <div class="value">
+                              <div class="row row-space">
+                                  <div class="col-4">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="text" name="firtsLastName" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.firtsLastName"
+                                          (keypress)="eliminarCaracteres($event)" style="text-transform:uppercase;" maxlength="20" 
+                                          >
+                                          <label class="label--desc">first last name</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-4">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="text" name="secondLastName" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.secondLastName"
+                                          (keypress)="eliminarCaracteres($event)" style="text-transform:uppercase;" maxlength="20" 
+                                          >
+                                          <label class="label--desc">second last name</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                        <div class="form-row">
+                            <div class="name">country</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="country" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.country" class="form-control">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="CO" >Colombia</option>
+                                            <option value="US" >Estados Unidos</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        
+                        <div class="form-row">
+                            <div class="name">Document type</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="documentType" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.documentType" class="form-control">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option value="CC" >CC</option>
+                                            <option value="CE" >CE</option>
+                                            <option value="PA" >PA</option>
+                                            <option value="PE" >PE</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="name">Document</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <input class="input--style-5" type="text" name="document" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.document" max="20">
+                              </div>
+                          </div>
+                        </div>
+                        <!-- <div class="form-row">
+                          <div class="name">Email</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <input class="input--style-5" type="email" name="email" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.email" disabled>
+                              </div>
+                          </div>
+                        </div> -->
+
+                       
+                        <div class="form-row">
+                            <div class="name">Fecha ingreso</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="date" name="admissionDate" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.admissionDate">
+                                </div>
+                            </div>
+                          </div>
+
+                        <div class="form-row">
+                          <div class="name">Area</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <div class="rs-select2 js-select-simple select--no-search">
+                                      <select name="area" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.area" class="form-control">
+                                          <option disabled="disabled" selected="selected">Choose option</option>
+                                          <option value="Administracion" >Administracion</option>
+                                          <option value="Financiera" >Financiera</option>
+                                          <option value="Compras" >Compras</option>
+                                          <option value="Infraestructura" >Infraestructura</option>
+                                          <option value="Operación" >Operación</option>
+                                          <option value="Talento Humano" >Talento Humano</option>
+                                          <option value="Servicios" >Servicios </option>
+                                          <option value="Varios" >Varios</option>
+                                      </select>
+                                      <div class="select-dropdown"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- <div class="form-row">
+                        <div class="name">Estado</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="text" name="status" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.status" disabled >
+                            </div>
+                        </div>
+                      </div> -->
+
+                      <!-- <div class="form-row">
+                        <div class="name">Fecha ingreso</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-5" type="date" name="create" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.create">
+                            </div>
+                        </div>
+                      </div> -->
+                        
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
